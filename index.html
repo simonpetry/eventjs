@@ -12,26 +12,25 @@
 
     <script type="text/javascript">
 
-    var eventjs = new Event();
+        var eventjs = new Event();
 
-    setTimeout( () => {
-        eventjs.emit('getSchwifty', 'Ohh yea, you gotta get schwifty');
-        eventjs.emit('artScience', `Sometimes science is a lot more art, than science. A lot of people don't get that.`);
-    }, 2000);
+        setTimeout( () => {
+            eventjs.emit('getSchwifty', 'Ohh yea, you gotta get schwifty', 'in here');
+            eventjs.emit('artScience', `Sometimes science is a lot more art, than science. A lot of people don't get that.`);
+        }, 2000);
 
-    eventjs.on( 'getSchwifty', ( data ) => {
-        alert( data );
-    });
+        eventjs.on( 'getSchwifty', ( data, data2 ) => {
+            alert( data, data2 );
+        });
 
-    // Never fires
-    eventjs.on( 'artScience', ( data ) => {
-        console.log('data', data);
-        alert( data );
-    });
+        // Never fires
+        eventjs.on( 'artScience', ( data ) => {
+            console.log('data', data);
+            alert( data );
+        });
 
-    // Removes the artScience event
-    eventjs.off( 'artScience' );
-
+        // Removes the artScience event
+        eventjs.off( 'artScience' );
 
     </script>
 

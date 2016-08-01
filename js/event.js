@@ -12,7 +12,7 @@ class Event {
      * @param  {string} eventName The name of the event to emit
      * @param  {object} data      The data to pass to the callback
      */
-    emit( eventName, data ) {
+    emit( eventName, ...data ) {
 
         // Cache the reference
         let tempCallback = this.eventCallbacks[eventName];
@@ -23,7 +23,7 @@ class Event {
 
         // Call the callbacks
         tempCallback.forEach( ( v, i ) => {
-            tempCallback[i]( data );
+            tempCallback[i]( ...data );
         });
 
     }
